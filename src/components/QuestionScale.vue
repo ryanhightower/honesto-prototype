@@ -3,31 +3,51 @@
     {{ question }},
      <b-field>
       <b-radio-button
-        v-for="(scalar, idx) in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+        v-for="(unit, idx) in range"
         :key="idx"
         v-model="radioButton"
-        :native-value="scalar"
+        :native-value="unit"
         type="is-primary">
-        <span>{{scalar}}</span>
+        <span>{{unit}}</span>
       </b-radio-button>
      </b-field>
   </div>
 </template>
 
 <script>
+import { range } from "lodash"
 export default {
-  name: 'QuestionOpen',
+  name: 'QuestionScale',
   props: {
     question: {
       type: String,
-      default: "Do you have any other feedback for this person?"
-
+      default: "How well does this person do X?"
+    },
+    scale: {
+      type: Object,
+      default() {
+        return {
+          min: 1,
+          max: 10,
+          step: 1,
+          labels: {
+            minLabel: "",
+            maxLabel: "",
+            midLabel: ""
+          }
+        }
+      }
     },
     model: Object
   },
   data() {
     return {
       radioButton: ""
+    }
+  },
+  computed: {
+    range() {
+      return range(this.scale.min, this.scale.max + this.scale.step, this.scale.step)
     }
   }
 }
