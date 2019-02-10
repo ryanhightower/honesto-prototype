@@ -2,15 +2,14 @@
   <div class="question-open">
     {{ question }},
 
-    <b-checkbox-button
+    <b-radio-button
       v-for="choice in choices"
       :key="choice.value"
       v-model="value"
       :native-value="choice.value"
-      type="is-success">
-      <b-icon icon="check"></b-icon>
+      type="is-primary">
       <span>{{ choice.text }}</span>
-    </b-checkbox-button>
+    </b-radio-button>
   </div>
 </template>
 
