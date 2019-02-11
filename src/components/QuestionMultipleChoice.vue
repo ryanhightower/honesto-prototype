@@ -5,9 +5,10 @@
     <b-radio-button
       v-for="choice in choices"
       :key="choice.value"
-      v-model="value"
+      v-model="internalValue"
       :native-value="choice.value"
-      type="is-primary">
+      @input="handleInput"
+      :type="type">
       <span>{{ choice.text }}</span>
     </b-radio-button>
   </div>
@@ -17,6 +18,11 @@
 export default {
   name: 'QuestionMultipleChoice',
   props: {
+    value: [String, Number],
+    type: {
+      type: String,
+      default: "is-primary"
+    },
     question: {
       type: String,
       default: "Which option do you want?"
@@ -34,14 +40,15 @@ export default {
   },
   data() {
     return {
-      value: ""
+      internalValue: this.value
     }
   },
-  computed: {
-    // localModel(){
-    //   return  this.model || model
-    // },
+  methods: {
+    handleInput(value) {
+      this.$emit('input', value)
+    }
   }
+
 }
 </script>
 

@@ -2,7 +2,7 @@
   <div class="question-open">
     {{ question }},
     <b-field>
-      <b-input type="textarea" />
+      <b-input type="textarea" v-model="internalValue" @input="handleInput" />
     </b-field>
   </div>
 </template>
@@ -11,12 +11,21 @@
 export default {
   name: 'QuestionOpen',
   props: {
+    value: String,
     question: {
       type: String,
       default: "Do you have any other feedback for this person?"
-
-    },
-    model: Object
+    }
+  },
+  data() {
+    return {
+      internalValue: this.value,
+    }
+  },
+  methods: {
+    handleInput (value) {
+      this.$emit('input', value)
+    }
   }
 }
 </script>

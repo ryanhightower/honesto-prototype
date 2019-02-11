@@ -5,9 +5,10 @@
       <b-radio-button
         v-for="(unit, idx) in range"
         :key="idx"
-        v-model="radioButton"
+        v-model="internalValue"
         :native-value="unit"
-        type="is-primary">
+        @input="handleInput"
+        :type="type">
         <span>{{unit}}</span>
       </b-radio-button>
      </b-field>
@@ -19,6 +20,11 @@ import { range } from "lodash"
 export default {
   name: 'QuestionScale',
   props: {
+    value: Number,
+    type: {
+      type: String,
+      default: "is-primary"
+    },
     question: {
       type: String,
       default: "How well does this person do X?"
@@ -30,7 +36,7 @@ export default {
           min: 1,
           max: 10,
           step: 1,
-          labels: {
+          labels: { // Could be used to label the scale. e.g. 1 = Strongly disagree, 5 = Neither agree nor disagree, 10 = Strongly agree
             minLabel: "",
             maxLabel: "",
             midLabel: ""
@@ -42,12 +48,17 @@ export default {
   },
   data() {
     return {
-      radioButton: ""
+      internalValue: this.value
     }
   },
   computed: {
     range() {
       return range(this.scale.min, this.scale.max + this.scale.step, this.scale.step)
+    }
+  },
+  methods: {
+    handleInput(value) {
+      this.$emit('input', value)
     }
   }
 }
