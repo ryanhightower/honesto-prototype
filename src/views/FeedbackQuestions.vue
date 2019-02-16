@@ -78,7 +78,7 @@ export default {
       // return import(`@/components/Question${ this.capitalize(this.question.type) }`)
     },
     nextQ() {
-      if (this.isLastQ) return null // TODO: if isLast, submit or finish survey
+      if (this.isLastQ) return "complete"  // TODO: if isLast, submit or finish survey
         const nextIdx = this.currentIndex + 1
         return this.questionsIndex[nextIdx]
     },
@@ -101,6 +101,7 @@ export default {
     },
     qRoute(questionId) {
       if (!questionId) return null
+      if (questionId === "complete") return { name: 'feedbackComplete', path: '/feedback/complete' }
       return {
         name: 'feedbackQuestions',
         query: { q: questionId }

@@ -30,13 +30,18 @@ export default new Router({
       children: [
         {
           path: '/feedback/',
-          name: "feedbackUsers",
-          component: () => import(/* webpackChunkName: "about" */ './views/FeedbackUsers.vue'),
+          name: 'feedbackUsers',
+          component: () => import(/* webpackChunkName: 'about' */ './views/FeedbackUsers.vue'),
         },
         {
           path: '/feedback/user/:userId',
-          name: "feedbackQuestions",
-          component: () => import(/* webpackChunkName: "about" */ './views/FeedbackQuestions.vue'),
+          name: 'feedbackQuestions',
+          component: () => import(/* webpackChunkName: 'about' */ './views/FeedbackQuestions.vue'),
+        },
+        {
+          path: '/feedback/complete',
+          name: 'feedbackComplete',
+          component: () => import(/* webpackChunkName: 'about' */ './views/FeedbackComplete.vue'),
         },
       ]
     },
