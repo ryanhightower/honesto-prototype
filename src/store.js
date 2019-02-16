@@ -20,6 +20,9 @@ export default new Vuex.Store({
   mutations: {
     RECORD_ANSWER(state, { user, question, answer }) {
       state.feedback[user][question] = answer
+    },
+    FEEDBACK_COMPLETE(state, { user }) {
+      state.users[user].feedbackComplete = true
     }
   },
   actions: {

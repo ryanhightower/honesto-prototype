@@ -10,31 +10,31 @@ export default {
       id: "userId1",
       name: "Chris Johnson",
       avatar: "/imgs/chris-johnson.png",
-      surveyAvailable: true
+      feedbackComplete: false
     },
     userId2: {
       id: "userId2",
       name: "Nico Perez",
       avatar: "/imgs/nico-perez.png",
-      surveyAvailable: true
+      feedbackComplete: false
     },
     userId3: {
       id: "userId3",
       name: "Nathaniel Moon",
       avatar: "/imgs/nathaniel-moon.png",
-      surveyAvailable: true
+      feedbackComplete: false
     },
     userId4: {
       id: "userId4",
       name: "Denis Denison",
       avatar: "/imgs/denis-denison.png",
-      surveyAvailable: true
+      feedbackComplete: false
     },
     userId5: {
       id: "userId5",
       name: "Paul Carter",
       avatar: "/imgs/paul-carter.png",
-      surveyAvailable: false
+      feedbackComplete: true
     }
   },
   // surveys: {
