@@ -23,10 +23,15 @@ export default new Router({
     //   name: 'login',
     //   component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     // },
+    {
+      path: '/feedback',
+      name: 'feedback',
+      component: () => import(/* webpackChunkName: "about" */ './views/Feedback.vue'),
+    },
     // {
-    //   path: '/give-feedback',
-    //   name: 'about',
-    //   component: () => import(/* webpackChunkName: "about" */ './views/GiveFeedback.vue')
+    //   path: '/feedback/u/:userId',
+    //   name: 'feedback',
+    //   component: () => import(/* webpackChunkName: "about" */ './views/Feedback.vue')
     // },
     // {
     //   path: '/my-feedback',
