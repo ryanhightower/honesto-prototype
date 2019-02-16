@@ -11,6 +11,7 @@
 export default {
   name: 'QuestionOpen',
   props: {
+    initialValue: [String, Number],
     value: String,
     question: {
       type: String,
@@ -19,7 +20,7 @@ export default {
   },
   data() {
     return {
-      internalValue: this.value,
+      internalValue: this.initialValue,
     }
   },
   methods: {

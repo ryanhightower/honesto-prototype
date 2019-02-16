@@ -1,5 +1,5 @@
 <template>
-  <div class="question-open">
+  <div class="question-multiple-choice">
     {{ question }},
 
     <b-radio-button
@@ -18,6 +18,7 @@
 export default {
   name: 'QuestionMultipleChoice',
   props: {
+    initialValue: [String, Number],
     value: [String, Number],
     type: {
       type: String,
@@ -33,14 +34,10 @@ export default {
         return [{ text: "Option 1", value: 1 }, { text: "Option 2", value: 2 }, { text: "Option 3", value: 3 }]
       }
     },
-    model: {
-      type: String,
-      default: ""
-    }
   },
   data() {
     return {
-      internalValue: this.value
+      internalValue: this.initialValue
     }
   },
   methods: {

@@ -1,10 +1,11 @@
 <template>
-  <div class="question-open">
+  <div class="question-scale">
     {{ question }},
      <b-field>
       <b-radio-button
         v-for="(unit, idx) in range"
         :key="idx"
+        :value="initialValue"
         v-model="internalValue"
         :native-value="unit"
         @input="handleInput"
@@ -20,7 +21,8 @@ import { range } from "lodash"
 export default {
   name: 'QuestionScale',
   props: {
-    value: Number,
+    initialValue: [String, Number],
+    value: [String, Number],
     type: {
       type: String,
       default: "is-primary"
@@ -44,11 +46,10 @@ export default {
         }
       }
     },
-    model: Object
   },
   data() {
     return {
-      internalValue: this.value
+      internalValue: this.initialValue
     }
   },
   computed: {
