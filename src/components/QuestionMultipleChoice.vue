@@ -1,6 +1,6 @@
 <template>
   <div class="question-multiple-choice">
-    {{ question }},
+    {{ question }}
 
     <b-radio-button
       v-for="choice in choices"

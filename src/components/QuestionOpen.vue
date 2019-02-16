@@ -1,6 +1,6 @@
 <template>
   <div class="question-open">
-    {{ question }},
+    {{ question }}
     <b-field>
       <b-input type="textarea" v-model="internalValue" @input="handleInput" />
     </b-field>

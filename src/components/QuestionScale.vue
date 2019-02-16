@@ -1,6 +1,6 @@
 <template>
   <div class="question-scale">
-    {{ question }},
+    {{ question }}
      <b-field>
       <b-radio-button
         v-for="(unit, idx) in range"
