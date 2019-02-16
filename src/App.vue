@@ -2,7 +2,8 @@
   <div id="app" class="container">
     <div class="navbar">
       <!-- <router-link to="/">Home</router-link> | -->
-      <router-link to="/demo">Demo</router-link>
+      <router-link to="/demo">Demo</router-link> |
+      <router-link to="/feedback">Share Feedback</router-link>
     </div>
     <router-view/>
   </div>
