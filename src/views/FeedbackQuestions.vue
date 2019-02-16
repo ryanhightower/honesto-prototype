@@ -22,20 +22,20 @@
 
     <div class="survey-nav level">
       <span class="level-left">
-        <a class="button"
+        <button class="button"
           @click="navigateTo(qRoute(previousQ))"
           :disabled="!previousQ"
-        >Previous</a></span>
+        >Previous</button></span>
       <span>
-        <a class="button"
+        <button class="button"
           @click="navigateTo(qRoute(nextQ))"
-          :disabled="false"
-        >Skip</a></span>
+          :disabled="!question.skippable"
+        >Skip</button></span>
       <span class="level-right">
-        <a class="button"
+        <button class="button"
           @click="[commitAnswer(), navigateTo(qRoute(nextQ))]"
 
-          :disabled="!nextQ">Next</a></span>
+          :disabled="!currentAnswer && answer===''">{{ isLastQ ? "Finish" : "Next" }}</button></span>
     </div>
     <pre>{{ question }}</pre>
   </div>
