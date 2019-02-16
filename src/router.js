@@ -33,6 +33,11 @@ export default new Router({
           name: "feedbackUsers",
           component: () => import(/* webpackChunkName: "about" */ './views/FeedbackUsers.vue'),
         },
+        {
+          path: '/feedback/user/:userId',
+          name: "feedbackQuestions",
+          component: () => import(/* webpackChunkName: "about" */ './views/FeedbackQuestions.vue'),
+        },
       ]
     },
     // {

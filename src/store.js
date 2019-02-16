@@ -11,7 +11,9 @@ export default new Vuex.Store({
     currentUser: state =>  get(state, 'users.uuid0', { id: '', name: '', surveyAvailable: false }),
   },
   mutations: {
-
+    RECORD_ANSWER(state, { user, question, answer }) {
+      state.feedback[user][question] = answer
+    }
   },
   actions: {
 
