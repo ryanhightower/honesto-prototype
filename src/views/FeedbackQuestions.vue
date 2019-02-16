@@ -107,6 +107,7 @@ export default {
       }
     },
     commitAnswer() {
+      if (this.answer === '' || this.answer === this.currentAnswer) return;
       this.$store.commit('RECORD_ANSWER', {
         user: this.teammate.id,
         question: this.questionId,
