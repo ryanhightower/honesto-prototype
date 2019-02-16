@@ -13,11 +13,11 @@
       </div>
       <div class="level-right">
         <a
-          v-if="user.surveyAvailable"
+          v-if="!user.feedbackComplete"
           class="button is-primary"
           @click.prevent="startSurveyFor(user.id)">Fill Out</a>
         <a
-          v-if="! user.surveyAvailable"
+          v-if="user.feedbackComplete"
           class="button"
           @click.prevent="viewSubmissionFor(user.id)">View Submission</a>
       </div>
