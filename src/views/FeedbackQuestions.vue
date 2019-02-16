@@ -33,7 +33,7 @@
         >Skip</a></span>
       <span class="level-right">
         <a class="button"
-          @click="commitAnswer"
+          @click="[commitAnswer(), navigateTo(qRoute(nextQ))]"
 
           :disabled="!nextQ">Next</a></span>
     </div>
@@ -96,6 +96,7 @@ export default {
     },
     navigateTo(route){
       if (!route) return
+      this.answer = ""
       this.$router.push(route)
     },
     qRoute(questionId) {
@@ -111,7 +112,6 @@ export default {
         question: this.questionId,
         answer: this.answer
       })
-      this.answer = ""
     }
   }
 }
