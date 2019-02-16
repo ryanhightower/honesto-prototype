@@ -37,15 +37,23 @@ export default {
         return {
           min: 1,
           max: 10,
-          step: 1,
-          labels: { // Could be used to label the scale. e.g. 1 = Strongly disagree, 5 = Neither agree nor disagree, 10 = Strongly agree
-            minLabel: "",
-            maxLabel: "",
-            midLabel: ""
-          }
         }
       }
     },
+    step: {
+      type: Number,
+      default() { return 1 }
+    },
+    labels: { // Could be used to label the scale. e.g. 1 = Strongly disagree, 5 = Neither agree nor disagree, 10 = Strongly agree
+      type: Object,
+      default() {
+        return {
+          minLabel: "",
+          maxLabel: "",
+          midLabel: ""
+        }
+      }
+    }
   },
   data() {
     return {
@@ -54,7 +62,7 @@ export default {
   },
   computed: {
     range() {
-      return range(this.scale.min, this.scale.max + this.scale.step, this.scale.step)
+      return range(this.scale.min, this.scale.max + this.step, this.step)
     }
   },
   methods: {
@@ -65,6 +73,5 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 </style>
