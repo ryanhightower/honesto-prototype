@@ -16,6 +16,7 @@ export default new Vuex.Store({
   state: db,
   getters: {
     currentUser: state =>  get(state, 'users.uuid0', { id: '', name: '', surveyAvailable: false }),
+    questionsIndex: state => Object.keys(state.questions), // this getter might use a sort order prop on the questions when using a db.
   },
   mutations: {
     RECORD_ANSWER(state, { user, question, answer }) {
