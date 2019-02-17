@@ -33,7 +33,7 @@
         >Skip</button></span>
       <span class="level-right">
         <button class="button"
-          @click="[commitAnswer(), navigateTo(qRoute(nextQ))]"
+          @click="[commitAnswer(), navigateTo(qRoute(nextQ)), markFeedbackComplete()]"
 
           :disabled="!currentAnswer && answer===''">{{ isLastQ ? "Finish" : "Next" }}</button></span>
     </div>
@@ -66,12 +66,12 @@ export default {
       ]),
     ...mapGetters(['currentUser', 'questionsIndex']),
     userId() { return this.$route.params.userId },
-    teammate() { return this.users[this.userId] },
+    teammate() { return this.users[this.userId] || { name: '' } },
     // survey() { return this.surveys[this.$route.query.s] || 'uuid1' },
     questionId() { return this.$route.query.q },
     question() { return this.questions[this.questionId] || 'uuid1' },
     currentIndex() { return this.questionsIndex.indexOf(this.questionId) },
-    currentAnswer() { return this.feedback[this.userId][this.questionId] },
+    currentAnswer() { return this.userId && this.questionId ? this.feedback[this.userId][this.questionId] : '' },
     questionComponent() {
       return `Question${ this.capitalize(this.question.type) }`
       // return import(`@/components/Question${ this.capitalize(this.question.type) }`)
@@ -108,14 +108,17 @@ export default {
     },
     commitAnswer() {
       if (this.answer === '' || this.answer === this.currentAnswer) return;
-      if (this.isLastQ) this.$store.commit('FEEDBACK_COMPLETE', {
-        userId: this.teammate.id
-      })
       this.$store.commit('RECORD_ANSWER', {
         user: this.teammate.id,
         question: this.questionId,
         answer: this.answer
       })
+    },
+    markFeedbackComplete() {
+      if (this.isLastQ)
+        this.$store.commit('FEEDBACK_COMPLETE', {
+          userId: this.teammate.id
+        })
     }
   }
 }
