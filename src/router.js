@@ -9,7 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: { name: 'feedback' }
+      redirect: { name: 'feedbackUsers' }
     },
     {
       path: '/demo',
