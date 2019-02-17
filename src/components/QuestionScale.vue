@@ -5,7 +5,6 @@
       <b-radio-button
         v-for="(unit, idx) in range"
         :key="idx"
-        :value="initialValue"
         v-model="internalValue"
         :native-value="unit"
         @input="handleInput"
@@ -68,6 +67,11 @@ export default {
   methods: {
     handleInput(value) {
       this.$emit('input', value)
+    }
+  },
+  watch: {
+    '$route' () {
+      this.internalValue = this.initialValue;
     }
   }
 }

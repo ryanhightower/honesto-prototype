@@ -2,7 +2,7 @@
   <div class="question-open">
     {{ question }}
     <b-field>
-      <b-input type="textarea" v-model="internalValue" @input="handleInput" />
+      <b-input type="textarea" v-model="internalValue" @input="handleInput" placeholder="Say something" />
     </b-field>
   </div>
 </template>
@@ -26,6 +26,11 @@ export default {
   methods: {
     handleInput (value) {
       this.$emit('input', value)
+    }
+  },
+  watch: {
+    '$route' () {
+      this.internalValue = this.initialValue;
     }
   }
 }

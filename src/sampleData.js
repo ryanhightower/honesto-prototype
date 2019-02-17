@@ -201,9 +201,9 @@ export default {
       ]
     },
     questionId13: {
-      type: "scale",
+      type: "multipleChoice",
       question:
-        "Hos is working with this person Lorem ipsom dolor sit amet Lorem ipsum dolor sit amet?",
+        "How is working with this person Lorem ipsom dolor sit amet Lorem ipsum dolor sit amet?",
       choices: [
         {
           text: "Lorem ipsum 1",

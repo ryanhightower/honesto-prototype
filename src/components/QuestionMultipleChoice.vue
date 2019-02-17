@@ -44,6 +44,11 @@ export default {
     handleInput(value) {
       this.$emit('input', value)
     }
+  },
+  watch: {
+    '$route' () {
+      this.internalValue = this.initialValue;
+    }
   }
 
 }
