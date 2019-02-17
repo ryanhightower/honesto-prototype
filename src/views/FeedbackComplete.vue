@@ -32,8 +32,8 @@ export default {
     return {}
   },
   computed: {
-    ...mapState(['users', 'questions', 'questionsIndex', 'feedback']),
-    ...mapGetters(['currentUser']),
+    ...mapState(['users', 'questions', 'feedback']),
+    ...mapGetters(['currentUser', 'questionsIndex']),
     usersAvailableForFeedback() { return Object.values(this.users).filter( user => !user.feedbackComplete ) },
     firstQuestion() { return this.questionsIndex[0] }
   },

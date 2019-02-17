@@ -37,7 +37,7 @@
 
           :disabled="!currentAnswer && answer===''">{{ isLastQ ? "Finish" : "Next" }}</button></span>
     </div>
-    <pre>{{ question }}</pre>
+    <!-- <pre>{{ question }}</pre> -->
   </div>
 </template>
 
@@ -61,11 +61,10 @@ export default {
     ...mapState([
       'users',
       'questions',
-      'questionsIndex',
       'feedback'
       // 'surveys'
       ]),
-    ...mapGetters(['currentUser']),
+    ...mapGetters(['currentUser', 'questionsIndex']),
     userId() { return this.$route.params.userId },
     teammate() { return this.users[this.userId] },
     // survey() { return this.surveys[this.$route.query.s] || 'uuid1' },

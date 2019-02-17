@@ -43,8 +43,8 @@ export default {
     }
   },
   computed: {
-    ...mapState(['users', 'questionsIndex']),
-    ...mapGetters(['currentUser']),
+    ...mapState(['users']),
+    ...mapGetters(['currentUser', 'questionsIndex']),
     usersWithFeedback() { return Object.values(this.users).filter( user => user.feedbackComplete ) },
     userId() { return this.$route.params.userId }
   },
@@ -61,13 +61,11 @@ export default {
     }
   },
   watch: {
-    '$route': {
-      handler: function (to) {
+    '$route'(to) {
         if ( to.params.userId )
           delay(this.markViewed(to.params.userId), 3 * 1000)
-      },
-      immediate: true
     }
+
   }
 }
 </script>

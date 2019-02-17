@@ -39,8 +39,8 @@ export default {
     }
   },
   computed: {
-    ...mapState(['users', 'questions', 'questionsIndex', 'feedback']),
-    ...mapGetters(['currentUser']),
+    ...mapState(['users', 'questions', 'feedback']),
+    ...mapGetters(['currentUser', 'questionsIndex']),
     firstQuestion() { return this.questionsIndex[0] }
   },
   methods: {

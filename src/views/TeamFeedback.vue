@@ -40,8 +40,8 @@ export default {
     }
   },
   computed: {
-    ...mapState(['users', 'questionsIndex']),
-    ...mapGetters(['currentUser']),
+    ...mapState(['users']),
+    ...mapGetters(['currentUser', 'questionsIndex']),
     usersWithFeedback() { return Object.values(this.users).filter( user => user.feedbackComplete ) },
   },
   methods: {

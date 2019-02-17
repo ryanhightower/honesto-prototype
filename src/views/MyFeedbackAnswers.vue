@@ -33,8 +33,8 @@ export default {
     return {}
   },
   computed: {
-    ...mapState(['users', 'questions', 'questionsIndex', 'feedback']),
-    ...mapGetters(['currentUser']),
+    ...mapState(['users', 'questions', 'feedback']),
+    ...mapGetters(['currentUser', 'questionsIndex']),
     userId() { return this.$route.params.userId },
     teammate() { return this.users[this.userId] },
     answers() { return this.feedback[this.userId] }
