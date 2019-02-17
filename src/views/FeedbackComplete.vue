@@ -3,22 +3,19 @@
     <h1 class="title is-3">Thank you for sharing your feedback!</h1>
     <p>Continue to give feedback to other team members.</p>
     <div class="container" style="max-width: 600px; border: 1px solid #eee; border-radius: 3px;">
-    <div
-      v-for="user in usersAvailableForFeedback"
-      :key="user.id"
-      class="level"
-      style="margin: 0; padding: 20px; border-bottom: 1px solid #eee;">
-      <div class="level-left">
-        <img :src="user.avatar" alt="" class="level-item">
-        <h3 class="level-item title is-4">{{ user.name }}</h3>
-      </div>
-      <div class="level-right">
+    <user-item
+        v-for="user in usersAvailableForFeedback"
+        :key="user.id"
+        :name="user.name"
+        :avatar="user.avatar"
+        style="margin: 0; padding: 20px; border-bottom: 1px solid #eee;"
+      >
+      <template slot="right">
         <a
           class="button is-primary"
           @click.prevent="startSurveyFor(user.id)">Fill Out</a>
-      </div>
-    </div>
-    <pre>{{ users }}</pre>
+      </template>
+    </user-item>
     </div>
   </div>
 </template>
@@ -28,6 +25,9 @@ import { mapState, mapGetters } from 'vuex'
 
 export default {
   name: 'feedbackComplete',
+  components:{
+    UserItem: () => import('@/components/UserItem')
+  },
   data() {
     return {}
   },
