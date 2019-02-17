@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
 
 Vue.use(Router)
 
@@ -10,8 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      redirect: { name: 'feedback' }
     },
     {
       path: '/demo',
@@ -29,27 +27,22 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/Feedback.vue'),
       children: [
         {
-          path: '/feedback/',
+          path: '/',
           name: 'feedbackUsers',
           component: () => import(/* webpackChunkName: 'about' */ './views/FeedbackUsers.vue'),
         },
         {
-          path: '/feedback/user/:userId',
+          path: 'user/:userId',
           name: 'feedbackQuestions',
           component: () => import(/* webpackChunkName: 'about' */ './views/FeedbackQuestions.vue'),
         },
         {
-          path: '/feedback/complete',
+          path: 'complete',
           name: 'feedbackComplete',
           component: () => import(/* webpackChunkName: 'about' */ './views/FeedbackComplete.vue'),
         },
       ]
     },
-    // {
-    //   path: '/feedback/u/:userId',
-    //   name: 'feedback',
-    //   component: () => import(/* webpackChunkName: "about" */ './views/Feedback.vue')
-    // },
     // {
     //   path: '/my-feedback',
     //   name: 'about',
