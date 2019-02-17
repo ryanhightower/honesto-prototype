@@ -44,7 +44,6 @@ export default new Router({
     },
     {
       path: '/my-feedback',
-      name: 'myFeedback',
       component: () => import(/* webpackChunkName: "about" */ './views/MyFeedback.vue'),
       children: [
         {

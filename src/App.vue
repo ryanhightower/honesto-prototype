@@ -14,7 +14,7 @@
               <router-link to="/feedback">Share Feedback</router-link>
             </div>
             <div class="navbar-item">
-              <router-link to="/my-feedback">My Feedback</router-link>
+              <router-link :to="{ name: myFeedbackAnswers, params: { userId: 'userId1' }}">My Feedback</router-link>
             </div>
 
           </div>
