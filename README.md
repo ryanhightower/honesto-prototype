@@ -1,39 +1,22 @@
-# honesto
+# Honesto
+
+A small Vue UI prototype of a new feedback app.
 
 ## Project setup
+(Assuming you have node installed) clone this repo to your computer, navigate to the repo and run
 ```
-yarn install
+$ yarn
+or
+$ npm install
 ```
 
 ### Compiles and hot-reloads for development
+To run locally, use
 ```
-yarn run serve
+$ yarn (or npm) run serve
 ```
 
 ### Compiles and minifies for production
 ```
-yarn run build
+$ yarn (or npm) run build
 ```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Run your end-to-end tests
-```
-yarn run test:e2e
-```
-
-### Run your unit tests
-```
-yarn run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
