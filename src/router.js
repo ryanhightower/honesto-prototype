@@ -22,8 +22,7 @@ export default new Router({
     //   component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     // },
     {
-      path: '/feedback',
-      name: 'feedback',
+      path: '/feedback', // Don't navigate to parent directly. Used child route name.
       component: () => import(/* webpackChunkName: "about" */ './views/Feedback.vue'),
       children: [
         {
@@ -43,14 +42,14 @@ export default new Router({
         },
       ]
     },
-    // {
-    //   path: '/my-feedback',
-    //   name: 'about',
-    //   component: () => import(/* webpackChunkName: "about" */ './views/MyFeedback.vue')
-    // },
+    {
+      path: '/my-feedback',
+      name: 'myFeedback',
+      component: () => import(/* webpackChunkName: "about" */ './views/MyFeedback.vue')
+    },
     // {
     //   path: '/team-feedback',
-    //   name: 'about',
+    //   name: 'teamFeedback',
     //   component: () => import(/* webpackChunkName: "about" */ './views/TeamFeedback.vue')
     // },
   ]
