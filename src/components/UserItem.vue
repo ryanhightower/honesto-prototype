@@ -29,3 +29,19 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.user-item.level {
+  cursor: pointer;
+  margin: 0;
+  padding: 20px;
+  border-bottom: 1px solid #D9DCDE;
+
+  &:hover {
+    background-color: #D5B0F21A
+  }
+  // &:not(:last-child) {
+  // }
+}
+
+</style>
