@@ -53,6 +53,17 @@ export default new Router({
         }
       ]
     },
+    {
+      path: '/team-feedback',
+      component: () => import(/* webpackChunkName: "about" */ './views/TeamFeedback.vue'),
+      children: [
+        {
+          name: 'teamFeedbackAnswers',
+          path: 'user/:userId',
+          component: () => import(/* webpackChunkName: "about" */ './views/MyFeedbackAnswers.vue'),
+        }
+      ]
+    },
     // {
     //   path: '/team-feedback',
     //   name: 'teamFeedback',
