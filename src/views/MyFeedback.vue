@@ -13,6 +13,7 @@
           :name="user.name"
           :avatar="user.avatar"
           @click.native="navigateTo(feedbackRoute(user.id))"
+          :class="{ active: $route.params.userId === user.id }"
         >
           <b-tag type="is-primary" v-show="!user.flags.feedbackViewed">New</b-tag>
 
@@ -55,3 +56,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.my-feedback {
+  .user-item.active {
+    background-color: #F2F3F4;
+  }
+}
+</style>
