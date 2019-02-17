@@ -10,35 +10,50 @@ export default {
       id: "userId1",
       name: "Chris Johnson",
       avatar: "/imgs/chris-johnson.png",
-      feedbackComplete: false
+      flags: {
+        feedbackComplete: false,
+        feedbackViewed: false,
+      }
     },
     userId2: {
       id: "userId2",
       name: "Nico Perez",
       avatar: "/imgs/nico-perez.png",
-      feedbackComplete: false
+      flags: {
+        feedbackComplete: false,
+        feedbackViewed: false,
+      }
     },
     userId3: {
       id: "userId3",
       name: "Nathaniel Moon",
       avatar: "/imgs/nathaniel-moon.png",
-      feedbackComplete: false
+      flags: {
+        feedbackComplete: false,
+        feedbackViewed: false,
+      }
     },
     userId4: {
       id: "userId4",
       name: "Denis Denison",
       avatar: "/imgs/denis-denison.png",
-      feedbackComplete: false
+      flags: {
+        feedbackComplete: false,
+        feedbackViewed: false,
+      }
     },
     userId5: {
       id: "userId5",
       name: "Paul Carter",
       avatar: "/imgs/paul-carter.png",
-      feedbackComplete: true
+      flags: {
+        feedbackComplete: true,
+        feedbackViewed: false,
+      }
     }
   },
   questions: {
-    questionId21: {
+    questionId01: {
       type: "scale",
       question:
         "How much do you trust this person to deliver high quality work?",
@@ -48,7 +63,7 @@ export default {
         min: 1,
       }
     },
-    questionId22: {
+    questionId02: {
       type: "multipleChoice",
       question: "Is this person up to date with the latest accounting regulations?",
       choices: [
@@ -66,7 +81,7 @@ export default {
         }
       ]
     },
-    questionId23: {
+    questionId03: {
       type: "scale",
       question:
         "How well does this person understand the technical domain of our product?",
@@ -76,13 +91,13 @@ export default {
         min: 1,
       }
     },
-    questionId24: {
+    questionId04: {
       type: "open",
       question:
         "Have there been any situations where this person could have managed their emotions better? What happened?",
       skippable: true,
     },
-    questionId25: {
+    questionId05: {
       type: "multipleChoice",
       question: "Does this person care about our users and treats customer support as a high priority?",
       choices: [
@@ -100,13 +115,13 @@ export default {
         }
       ]
     },
-    questionId26: {
+    questionId06: {
       type: "open",
       question:
         "What would you like this person to work on the most during the next month, to enable their continued growth?",
       skippable: false,
     },
-    questionId27: {
+    questionId07: {
       type: "multipleChoice",
       question: "How transparent and clear are this person's plans and work tasks?",
       choices: [
@@ -124,7 +139,7 @@ export default {
         }
       ]
     },
-    questionId28: {
+    questionId08: {
       type: "scale",
       question:
         "How well does this person understand our business goals and roadmap?",
@@ -133,13 +148,13 @@ export default {
         min: 1,
       }
     },
-    questionId29: {
+    questionId09: {
       type: "open",
       question:
         "Is there anything else you'd like to share with this person?",
       skippable: true,
     },
-    questionId1: {
+    questionId10: {
       type: "scale",
       question:
         "How well did this person do X thing last month Lorem ipsum dolor sit amet Lorem ipsum dolor?",
@@ -148,7 +163,7 @@ export default {
         min: 1,
       }
     },
-    questionId2: {
+    questionId11: {
       type: "multipleChoice",
       question:
         "How would you rate the quality of X Lorem ipsum dolor sit amet?",
@@ -167,7 +182,7 @@ export default {
         }
       ]
     },
-    questionId3: {
+    questionId12: {
       type: "multipleChoice",
       question: "How does this person handle X?",
       choices: [
@@ -185,7 +200,7 @@ export default {
         }
       ]
     },
-    questionId4: {
+    questionId13: {
       type: "scale",
       question:
         "Hos is working with this person Lorem ipsom dolor sit amet Lorem ipsum dolor sit amet?",
@@ -204,7 +219,7 @@ export default {
         }
       ]
     },
-    questionId20: {
+    questionId14: {
       type: "open",
       question: "Do you have any other feedback for this person?"
     }
@@ -216,20 +231,20 @@ export default {
     userId4: {},
     userId5: {
       // surveyId1:{
-        questionId21: 3,
-        questionId22: 1,
-        questionId23: 10,
-        questionId24: "There was that one time... ",
-        questionId25: 2,
-        questionId26: "Keep improving on your communication. Work on building better raport with your direct reports. ",
-        questionId27: 1,
-        questionId28: 8,
-        questionId29: "You're doing great! Keep it up!",
-        questionId1: 6,
-        questionId2: 3,
-        questionId3: 3,
-        questionId4: 6,
-        questionId20: "Hey Sarah,\n\nYou are doing great, keep up the good work!!\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a euismod dolor, non blandit nisl. Sed euismod enim in semper consectetur. Duis elementum venenatis finibus. Sed quis neque diam. Aliquam nec blandit mi, et cursus dolor. Duis pharetra purus nunc, in facilisis ex auctor id. Duis nec metus arcu. Curabitur in semper tellus. Cras luctus tellus lectus, a lobortis velit convallis non. Praesent cursus vel velit eget hendrerit."
+        questionId01: 3,
+        questionId02: 1,
+        questionId03: 10,
+        questionId04: "There was that one time... ",
+        questionId05: 2,
+        questionId06: "Keep improving on your communication. Work on building better raport with your direct reports. ",
+        questionId07: 1,
+        questionId08: 8,
+        questionId09: "You're doing great! Keep it up!",
+        questionId10: 6,
+        questionId11: 3,
+        questionId12: 3,
+        questionId13: 6,
+        questionId14: "Hey Sarah,\n\nYou are doing great, keep up the good work!!\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a euismod dolor, non blandit nisl. Sed euismod enim in semper consectetur. Duis elementum venenatis finibus. Sed quis neque diam. Aliquam nec blandit mi, et cursus dolor. Duis pharetra purus nunc, in facilisis ex auctor id. Duis nec metus arcu. Curabitur in semper tellus. Cras luctus tellus lectus, a lobortis velit convallis non. Praesent cursus vel velit eget hendrerit."
       // }
     },
   }
