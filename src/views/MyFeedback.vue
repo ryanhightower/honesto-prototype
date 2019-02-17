@@ -45,7 +45,7 @@ export default {
   computed: {
     ...mapState(['users']),
     ...mapGetters(['currentUser', 'questionsIndex']),
-    usersWithFeedback() { return Object.values(this.users).filter( user => user.feedbackComplete ) },
+    usersWithFeedback() { return Object.values(this.users).filter( user => user.flags.feedbackComplete ) },
     userId() { return this.$route.params.userId }
   },
   methods: {
