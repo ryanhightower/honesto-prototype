@@ -12,8 +12,15 @@
       >
       <template slot="right">
         <a
-          class="button is-primary"
-          @click.prevent="startSurveyFor(user.id)">Fill Out</a>
+            v-if="!user.flags.feedbackComplete"
+            class="button is-primary"
+            @click.prevent="navigateTo(startFeedbackRoute(user.id))"
+          >Fill Out</a>
+          <a
+            v-if="user.flags.feedbackComplete"
+            class="button"
+            @click.prevent="navigateTo(viewFeedbackRoute(user.id))"
+          >View Submission</a>
       </template>
     </user-item>
     </div>
@@ -38,8 +45,14 @@ export default {
     firstQuestion() { return this.questionsIndex[0] }
   },
   methods: {
-    startSurveyFor(userId){
-      this.$router.push({ name: 'feedbackQuestions', params: { userId }, query: { q: this.firstQuestion }})
+    startFeedbackRoute(userId) {
+      return { name: 'feedbackQuestions', params: { userId }, query: { q: this.firstQuestion }}
+    },
+    viewFeedbackRoute(userId) {
+      return { name: "myFeedbackAnswers", params: { userId } }
+    },
+    navigateTo(route) {
+      this.$router.push(route)
     }
   }
 }
