@@ -61,9 +61,9 @@ export default {
     }
   },
   watch: {
-    '$route'(to) {
+    '$route' (to) {
         if ( to.params.userId )
-          delay(this.markViewed(to.params.userId), 3 * 1000)
+          delay(() => this.markViewed(to.params.userId), 3 * 1000)
     }
 
   }
