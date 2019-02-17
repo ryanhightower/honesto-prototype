@@ -110,7 +110,7 @@ export default {
     commitAnswer() {
       if (this.answer === '' || this.answer === this.currentAnswer) return;
       if (this.isLastQ) this.$store.commit('FEEDBACK_COMPLETE', {
-        user: this.teammate.id
+        userId: this.teammate.id
       })
       this.$store.commit('RECORD_ANSWER', {
         user: this.teammate.id,

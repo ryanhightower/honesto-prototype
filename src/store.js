@@ -22,8 +22,11 @@ export default new Vuex.Store({
     RECORD_ANSWER(state, { user, question, answer }) {
       state.feedback[user][question] = answer
     },
-    FEEDBACK_COMPLETE(state, { user }) {
-      state.users[user].feedbackComplete = true
+    FEEDBACK_COMPLETE(state, { userId }) {
+      state.users[userId].flags.feedbackComplete = true
+    },
+    MARK_FEEDBACK_VIEWED(state, { userId }) {
+      state.users[userId].flags.feedbackViewed = true
     }
   },
   actions: {

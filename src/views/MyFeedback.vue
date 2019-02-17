@@ -30,7 +30,8 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex"
+import { mapState, mapGetters } from 'vuex'
+import { delay } from 'lodash'
 
 export default {
   name: 'MyFeedback',
@@ -45,6 +46,7 @@ export default {
     ...mapState(['users', 'questionsIndex']),
     ...mapGetters(['currentUser']),
     usersWithFeedback() { return Object.values(this.users).filter( user => user.feedbackComplete ) },
+    userId() { return this.$route.params.userId }
   },
   methods: {
     feedbackRoute(userId) {
@@ -53,6 +55,19 @@ export default {
     navigateTo(route) {
       this.$router.push(route)
     },
+    markViewed(userId) {
+      if (!this.users[this.userId].flags.feedbackViewed)
+        this.$store.commit('MARK_FEEDBACK_VIEWED', { userId })
+    }
+  },
+  watch: {
+    '$route': {
+      handler: function (to) {
+        if ( to.params.userId )
+          delay(this.markViewed(to.params.userId), 3 * 1000)
+      },
+      immediate: true
+    }
   }
 }
 </script>
