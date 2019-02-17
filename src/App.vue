@@ -31,6 +31,10 @@
 </template>
 
 <style lang="scss">
+// colors
+$text-light: #ACB1B6;
+$border-grey: #D9DCDE;
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   color: #2c3e50;

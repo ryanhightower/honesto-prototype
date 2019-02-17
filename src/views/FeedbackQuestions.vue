@@ -1,10 +1,10 @@
 <template>
   <div class="feedback">
     <div class="level">
-      <div class="level-left"  style="text-align: left;">
+      <div class="level-left"  style="text-align: left; max-width: calc(100% - 70px);">
         <div>
-          <h1 class="title is-4">{{ question.question }}</h1>
-          <h3 class="level-item title is-6">Share your feedback for {{ teammate.name }}</h3>
+          <h1 class="question title is-4" style="margin-bottom: 10px;">{{ question.question }}</h1>
+          <span class="" style="font-size: 12px; color: #ACB1B6;">SHARE YOUR FEEDBACK FOR {{ teammate.name.toUpperCase() }}</span>
         </div>
       </div>
       <div class="level-right">
@@ -12,30 +12,34 @@
       </div>
     </div>
 
-    <component
-      :is="questionComponent"
-      :question="''"
-      :scale="question.scale"
-      :choices="question.choices"
-      :initialValue="currentAnswer"
-      v-model="answer"></component>
+    <div class="answer" style="box-shadow: 0 0 4px rgba(0,0,0,.25); padding: 20px;">
+      <component
+        :is="questionComponent"
+        :question="''"
+        :scale="question.scale"
+        :choices="question.choices"
+        :initialValue="currentAnswer"
+        v-model="answer"
+        ></component>
 
-    <div class="survey-nav level">
-      <span class="level-left">
-        <button class="button"
-          @click="navigateTo(qRoute(previousQ))"
-          :disabled="!previousQ"
-        >Previous</button></span>
-      <span>
-        <button class="button"
-          @click="navigateTo(qRoute(nextQ))"
-          :disabled="!question.skippable"
-        >Skip</button></span>
-      <span class="level-right">
-        <button class="button"
-          @click="[commitAnswer(), navigateTo(qRoute(nextQ)), markFeedbackComplete()]"
+      <div class="survey-nav level" style="margin-top: 30px;">
+        <span class="level-left">
+          <button class="button"
+            @click="navigateTo(qRoute(previousQ))"
+            :disabled="!previousQ"
+          >Previous</button></span>
+        <span>
+          <button class="button"
+            @click="navigateTo(qRoute(nextQ))"
+            v-if="question.skippable"
+          >Skip</button></span>
+        <span class="level-right">
+          <button class="button"
+            @click="[commitAnswer(), navigateTo(qRoute(nextQ)), markFeedbackComplete()]"
 
-          :disabled="!currentAnswer && answer===''">{{ isLastQ ? "Finish" : "Next" }}</button></span>
+            :disabled="!currentAnswer && answer===''">{{ isLastQ ? "Finish" : "Next" }}</button></span>
+      </div>
+
     </div>
     <!-- <pre>{{ question }}</pre> -->
   </div>
@@ -74,7 +78,6 @@ export default {
     currentAnswer() { return this.userId && this.questionId ? this.feedback[this.userId][this.questionId] : '' },
     questionComponent() {
       return `Question${ this.capitalize(this.question.type) }`
-      // return import(`@/components/Question${ this.capitalize(this.question.type) }`)
     },
     nextQ() {
       if (this.isLastQ) return "complete"  // TODO: if isLast, submit or finish survey
